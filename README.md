@@ -4,7 +4,7 @@
 TODO: update aksdhjkasd\
 info final project
 
-## collaborators
+## Collaborators
 César Augusto Silva Hernández\
 Silvio Alejandro Mora Mendoza\
 Andrés Miguel Martínez Somarriba\
