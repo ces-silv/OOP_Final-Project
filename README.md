@@ -5,5 +5,4 @@ TODO: update aksdhjkasd\
 info final project
 
 ## collaborators
-update this too\
-aaaaaa
+Silvio Alejandro Mora Mendoza\
