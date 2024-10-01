@@ -1,4 +1,4 @@
-# Final Poject using Java
+# Final Poject using Java (TODO: change with the actual project name :D ☕)
 
 ## Info About The Project
 TODO: update aksdhjkasd\
