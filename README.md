@@ -1,4 +1,4 @@
-# Final Project using Java ☕ (TODO: change with the actual project name :D )
+# Teacher Evaluation Automatization 🧑‍🏫
 
 ## Info About The Project
 TODO: update aksdhjkasd\
