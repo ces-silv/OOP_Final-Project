@@ -30,9 +30,6 @@ public class StudentData {
     @JsonProperty("sexo")
     private String gender;
 
-    //@JsonProperty("telefono")
-    //private String phone;
-
     @JsonProperty("carrera")
     private String major;
 
