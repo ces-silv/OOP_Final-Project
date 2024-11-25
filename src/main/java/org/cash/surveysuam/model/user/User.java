@@ -1,4 +1,4 @@
-package org.cash.surveysuam.model;
+package org.cash.surveysuam.model.user;
 
 public class User {
     private int userIdCIF;
