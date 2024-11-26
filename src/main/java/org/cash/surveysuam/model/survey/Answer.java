@@ -31,5 +31,5 @@ public class Answer {
     private String responseText;    // text
 
     private Long userId;
-
+    // QUITAR ESTOOOOOOOOOO
 }

@@ -1,12 +1,13 @@
-package org.cash.surveysuam.service;
+package org.cash.surveysuam.service.implement;
 
+import jakarta.transaction.Transactional;
 import org.cash.surveysuam.model.survey.Survey;
 import org.cash.surveysuam.repository.SurveyRepository;
+import org.cash.surveysuam.service.interfaces.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -31,8 +32,15 @@ public class SurveyServiceImplement implements SurveyService {
     }
 
     @Override
+    @Transactional
     public Survey getSurveyById(UUID id) {
-        Optional<Survey> survey = surveyRepository.findById(id);
-        return survey.orElseThrow(() -> new RuntimeException("Survey not found"));
+        Survey survey = surveyRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Survey not found"));
+
+        // Forzar la carga de preguntas y opciones
+        survey.getQuestions().size();
+        survey.getQuestions().forEach(q -> q.getOptions().size());
+
+        return survey;
     }
 }

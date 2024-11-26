@@ -1,4 +1,4 @@
-package org.cash.surveysuam.service;
+package org.cash.surveysuam.service.interfaces;
 
 import java.util.UUID;
 

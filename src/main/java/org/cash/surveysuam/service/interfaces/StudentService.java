@@ -1,4 +1,4 @@
-package org.cash.surveysuam.service;
+package org.cash.surveysuam.service.interfaces;
 
 import org.cash.surveysuam.dto.LoginRequest;
 import org.cash.surveysuam.dto.StudentData;

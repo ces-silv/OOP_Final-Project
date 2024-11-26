@@ -1,6 +1,6 @@
 package org.cash.surveysuam.controller;
 
-import org.cash.surveysuam.service.ParticipationService;
+import org.cash.surveysuam.service.interfaces.ParticipationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package org.cash.surveysuam.service;
+package org.cash.surveysuam.service.implement;
 
 import org.cash.surveysuam.model.survey.Answer;
 import org.cash.surveysuam.model.survey.Participation;
@@ -6,6 +6,7 @@ import org.cash.surveysuam.model.survey.Survey;
 import org.cash.surveysuam.repository.AnswerRepository;
 import org.cash.surveysuam.repository.ParticipationRepository;
 import org.cash.surveysuam.repository.SurveyRepository;
+import org.cash.surveysuam.service.interfaces.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

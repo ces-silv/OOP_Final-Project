@@ -1,4 +1,4 @@
-package org.cash.surveysuam.service;
+package org.cash.surveysuam.service.interfaces;
 
 import org.cash.surveysuam.model.survey.Answer;
 import org.cash.surveysuam.model.survey.Survey;

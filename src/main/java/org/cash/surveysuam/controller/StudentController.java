@@ -2,7 +2,7 @@ package org.cash.surveysuam.controller;
 
 import org.cash.surveysuam.dto.LoginRequest;
 import org.cash.surveysuam.dto.StudentData;
-import org.cash.surveysuam.service.StudentService;
+import org.cash.surveysuam.service.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,0 +1,7 @@
+package org.cash.surveysuam.repository;
+
+import org.cash.surveysuam.model.survey.Option;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OptionRepository extends JpaRepository<Option, Long> {
+}

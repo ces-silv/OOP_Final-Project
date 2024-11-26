@@ -1,8 +1,9 @@
-package org.cash.surveysuam.service;
+package org.cash.surveysuam.service.implement;
 
 import org.cash.surveysuam.api.ApiData;
 import org.cash.surveysuam.dto.LoginRequest;
 import org.cash.surveysuam.dto.StudentData;
+import org.cash.surveysuam.service.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
