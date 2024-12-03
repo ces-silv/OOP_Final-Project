@@ -5,5 +5,5 @@ import org.cash.surveysuam.model.logicSurvey.Asignatura;
 import java.util.List;
 
 public interface AsignaturaService {
-    List<Asignatura> getAsignaturasByIdCarrera(int carreraId);
+    List<Asignatura> getAsignaturasByIdAsignatura(String idAsignatura);
 }

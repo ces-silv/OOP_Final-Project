@@ -19,8 +19,9 @@ public class AsignaturaController {
     private AsignaturaService asignaturaService;
 
     @GetMapping
-    public ResponseEntity<List<Asignatura>> getAsignaturasByIdCarrera(@RequestParam int idCarrera) {
-        List<Asignatura> asignaturas = asignaturaService.getAsignaturasByIdCarrera(idCarrera);
+    public ResponseEntity<List<Asignatura>> getAsignaturasByIdCarrera(@RequestParam String idAsignatura) {
+        List<Asignatura> asignaturas = asignaturaService.getAsignaturasByIdAsignatura(idAsignatura);
         return ResponseEntity.ok(asignaturas);
     }
+
 }

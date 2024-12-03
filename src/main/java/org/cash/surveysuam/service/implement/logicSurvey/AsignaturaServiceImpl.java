@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AsignaturaServiceImpl implements AsignaturaService {
@@ -15,7 +16,8 @@ public class AsignaturaServiceImpl implements AsignaturaService {
     private AsignaturaRepository asignaturaRepository;
 
     @Override
-    public List<Asignatura> getAsignaturasByIdCarrera(int idCarrera) {
-        return asignaturaRepository.findByIdCarrera(idCarrera);
+    public List<Asignatura> getAsignaturasByIdAsignatura(String idAsignatura) {
+        return asignaturaRepository.findByIdAsignatura(idAsignatura);
     }
+
 }

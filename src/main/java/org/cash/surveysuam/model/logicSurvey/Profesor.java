@@ -1,5 +1,7 @@
 package org.cash.surveysuam.model.logicSurvey;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +17,8 @@ public class Profesor {
     private String IdProfesor;
     private String NombreProfesor;
 
-    @OneToMany(mappedBy = "profesor")
+    @OneToMany(mappedBy = "profesor") //@JsonIgnore
+    @JsonIgnore  // Evita la recursión al serializar Profesor -> Asignatura
     private List<Asignatura> asignaturas;
 
 //    @ManyToOne

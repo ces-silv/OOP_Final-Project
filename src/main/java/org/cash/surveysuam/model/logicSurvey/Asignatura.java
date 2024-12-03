@@ -1,5 +1,8 @@
 package org.cash.surveysuam.model.logicSurvey;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -21,7 +24,7 @@ public class Asignatura {
     @JoinColumn(name = "id_facultad", referencedColumnName = "idFacultad")
     private Facultad facultad;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) @JsonIgnore
     @JoinColumn(name = "id_profesor", referencedColumnName = "IdProfesor")
     private Profesor profesor;
 
