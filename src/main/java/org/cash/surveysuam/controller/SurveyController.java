@@ -124,13 +124,47 @@ public class SurveyController {
 
     @GetMapping("/{id}")
     public ResponseEntity<SurveyDTO> getSurveyById(@PathVariable UUID id) {
+        // Obtener la encuesta por su id
         Survey survey = surveyService.getSurveyById(id);
-        SurveyDTO surveyDTO = new SurveyDTO();
-        surveyDTO.setId(survey.getId());
-        surveyDTO.setTitle(survey.getTitle());
-        surveyDTO.setDescription(survey.getDescription());
-        surveyDTO.setFaculty(survey.getFaculty());
-        return ResponseEntity.ok(surveyDTO);
+
+        // Si no se encuentra la encuesta, devolver un NotFound
+        if (survey == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Mapear la encuesta a SurveyDTO
+        SurveyDTO dto = new SurveyDTO();
+        dto.setId(survey.getId());
+        dto.setTitle(survey.getTitle());
+        dto.setDescription(survey.getDescription());
+        dto.setFaculty(survey.getFaculty());
+
+        // Mapear preguntas
+        if (survey.getQuestions() != null) {
+            List<QuestionDTO> questionDTOs = survey.getQuestions().stream().map(question -> {
+                QuestionDTO questionDTO = new QuestionDTO();
+                questionDTO.setId(question.getId());
+                questionDTO.setText(question.getText());
+                questionDTO.setType(question.getType().name());
+                questionDTO.setRequired(question.isRequired());
+
+                // Mapear opciones
+                if (question.getOptions() != null) {
+                    List<OptionDTO> optionDTOs = question.getOptions().stream().map(option -> {
+                        OptionDTO optionDTO = new OptionDTO();
+                        optionDTO.setId(option.getId());
+                        optionDTO.setText(option.getText());
+                        return optionDTO;
+                    }).collect(Collectors.toList());
+                    questionDTO.setOptions(optionDTOs);
+                }
+
+                return questionDTO;
+            }).collect(Collectors.toList());
+            dto.setQuestions(questionDTOs);
+        }
+
+        return ResponseEntity.ok(dto);
     }
 
 }
