@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Importamos useNavigate
 
 const SurveyResponse = () => {
     const [facultades, setFacultades] = useState([]);
@@ -11,6 +12,8 @@ const SurveyResponse = () => {
     const [selectedProfesor, setSelectedProfesor] = useState('');
     const [selectedAsignatura, setSelectedAsignatura] = useState('');
     const [selectedGrupo, setSelectedGrupo] = useState('');
+
+    const navigate = useNavigate(); // Instanciamos el hook useNavigate
 
     // Obtener todas las facultades
     useEffect(() => {
@@ -90,6 +93,11 @@ const SurveyResponse = () => {
     // Validación de si todos los campos están seleccionados
     const isFormValid = selectedFacultad && selectedCarrera && selectedAsignatura && selectedProfesor;
 
+    // Función para redirigir al home
+    const goToHome = () => {
+        navigate('/'); // Esto redirige a la página principal
+    };
+
     return (
         <div>
             <h2>Responder Encuesta</h2>
@@ -137,6 +145,9 @@ const SurveyResponse = () => {
 
             {/* Botón de búsqueda con validación */}
             <button onClick={handleSubmit} disabled={!isFormValid}>Buscar Encuestas</button>
+
+            {/* Botón Principal para regresar al home */}
+            <button onClick={goToHome}>Botón Principal</button>
         </div>
     );
 };
