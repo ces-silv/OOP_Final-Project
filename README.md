@@ -1,4 +1,4 @@
-# Teacher Evaluation Automatization 🧑‍🏫
+# Teacher Evaluation Automatization 🧑‍🏫 (STATUS: WORKING ON!)
 
 ## 📄 Proyecto: Automatización de la Evaluación Docente
 
