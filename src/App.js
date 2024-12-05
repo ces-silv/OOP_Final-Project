@@ -16,7 +16,10 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path="/" element={userInfo ? <Navigate to="/home" /> : <Login onLogin={handleLogin} />} />
-                <Route path="/home" element={userInfo ? <Home userInfo={userInfo} /> : <Navigate to="/" />} />
+                <Route
+                    path="/home"
+                    element={userInfo ? <Home userInfo={userInfo} setUserInfo={setUserInfo} /> : <Navigate to="/" />}
+                />
                 <Route path="/profile" element={userInfo ? <Profile /> : <Navigate to="/" />} />
                 <Route path="/survey-response" element={<SurveyResponse />} />
             </Routes>

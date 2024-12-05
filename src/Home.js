@@ -1,10 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Home = ({ userInfo }) => {
+const Home = ({ userInfo, setUserInfo }) => {
+    const navigate = useNavigate();
+
+    // Función para manejar el log out
+    const handleLogOut = () => {
+        // Limpiar la información del usuario
+        setUserInfo(null); // Ahora puedes llamar correctamente a setUserInfo
+        // Redirigir al inicio (o login)
+        navigate('/');
+    };
+
     return (
         <div style={styles.container}>
             <h2 style={styles.header}>Menú Principal</h2>
+
             {/* Información del usuario */}
             {userInfo && (
                 <div style={styles.userInfoContainer}>
@@ -26,6 +37,10 @@ const Home = ({ userInfo }) => {
                 </Link>
             </div>
 
+            {/* Botón de Log Out */}
+            <div style={styles.buttonContainer}>
+                <button onClick={handleLogOut} style={styles.button}>Cerrar Sesión</button>
+            </div>
         </div>
     );
 };
