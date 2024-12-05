@@ -1,6 +1,7 @@
 package org.cash.surveysuam.controller.logicSurvey;
 
 import org.cash.surveysuam.model.logicSurvey.Asignatura;
+import org.cash.surveysuam.model.logicSurvey.Profesor;
 import org.cash.surveysuam.service.interfaces.logicSurvey.AsignaturaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,22 @@ public class AsignaturaController {
     public ResponseEntity<List<Asignatura>> getAsignaturasByIdCarrera(@RequestParam String idAsignatura) {
         List<Asignatura> asignaturas = asignaturaService.getAsignaturasByIdAsignatura(idAsignatura);
         return ResponseEntity.ok(asignaturas);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Asignatura>> getAsignaturasByCarreraAndFacultad(
+            @RequestParam String idCarrera,
+            @RequestParam int idFacultad) {
+        List<Asignatura> asignaturas = asignaturaService.findByCarreraAndFacultad(idCarrera, idFacultad);
+        return ResponseEntity.ok(asignaturas);
+    }
+
+    @GetMapping("/profesor")
+    public ResponseEntity<Profesor> getProfesorByAsignaturaAndGrupo(
+            @RequestParam String idAsignatura,
+            @RequestParam int grupo) {
+        Profesor profesor = asignaturaService.getProfesorByAsignaturaIdAndGrupo(idAsignatura, grupo);
+        return ResponseEntity.ok(profesor);
     }
 
 }
