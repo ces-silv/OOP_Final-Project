@@ -8,8 +8,10 @@ import java.util.UUID;
 
 public interface AnswerService {
 
-    void saveAnswer(List<Answer> answers, String participationToken, Survey survey, String cif, int facultadId, int carreraId, int grupo, String claseId, int profesorId);
+    void saveAnswer(List<Answer> answers, Survey survey, String cif, int facultadId, int carreraId, int grupo, String claseId, String profesorId);
 
     List<Answer> getAnswersForSurvey(UUID surveyId);
+
+    void saveAnswerWithContext(List<Answer> answers, Survey survey, String cif, int idFacultad, int idCarrera, int grupo, String idClase, String idProfesor);
 
 }

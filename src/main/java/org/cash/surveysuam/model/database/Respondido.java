@@ -21,5 +21,5 @@ public class Respondido {
     private int CarreraId;
     private String ClaseId;
     private int Grupo;
-    private int ProfesorId;
+    private String ProfesorId;
 }

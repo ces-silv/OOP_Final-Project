@@ -1,10 +1,7 @@
 package org.cash.surveysuam.service.implement;
 
 import org.cash.surveysuam.model.database.Respondido;
-import org.cash.surveysuam.model.survey.Answer;
-import org.cash.surveysuam.model.survey.Option;
-import org.cash.surveysuam.model.survey.Participation;
-import org.cash.surveysuam.model.survey.Survey;
+import org.cash.surveysuam.model.survey.*;
 import org.cash.surveysuam.repository.*;
 import org.cash.surveysuam.service.interfaces.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +18,10 @@ public class AnswerServiceImplement implements AnswerService {
     private AnswerRepository answerRepository;
 
     @Autowired
-    private RespondidoRepository respondidoRepository;
+    private ResponseContextRepository responseContextRepository;
 
     @Autowired
-    private ParticipationRepository participationRepository;
+    private RespondidoRepository respondidoRepository;
 
     @Autowired
     private SurveyRepository surveyRepository;
@@ -32,14 +29,9 @@ public class AnswerServiceImplement implements AnswerService {
     @Autowired
     private OptionRepository optionRepository;
 
+
     @Override
-    public void saveAnswer(List<Answer> answers, String participationToken, Survey survey, String cif, int facultadId, int carreraId, int grupo, String claseId, int profesorId) {
-
-        // First a validation, no multiple answers
-        if(participationRepository.existsBySurveyAndParticipationToken(survey, participationToken)) {
-            throw new RuntimeException("You already answered this survey");
-        }
-
+    public void saveAnswer(List<Answer> answers, Survey survey, String cif, int facultadId, int carreraId, int grupo, String claseId, String profesorId) {
         // Assign selected options to each answer
         for (Answer answer : answers) {
             List<Long> selectedOptionIds = answer.getSelectedOptionIds(); // Assuming you have a method to get selected option IDs
@@ -61,16 +53,54 @@ public class AnswerServiceImplement implements AnswerService {
         respondido.setClaseId(claseId);
         respondido.setProfesorId(profesorId);
 
-        // Save Participation
-        Participation participation = new Participation();
-        participation.setSurvey(survey);
-        participation.setParticipationToken(participationToken);
-        participationRepository.save(participation);
+        // Save Respondido
+        respondidoRepository.save(respondido);
     }
 
     @Override
     public List<Answer> getAnswersForSurvey(UUID surveyId) {
         Survey survey = surveyRepository.findById(surveyId).orElseThrow(() -> new RuntimeException("Survey not found"));
         return answerRepository.findBySurvey(survey);
+    }
+
+    @Override
+    public void saveAnswerWithContext(List<Answer> answers, Survey survey, String cif, int idFacultad, int idCarrera, int grupo, String idClase, String idProfesor) {
+        // Assign selected options to each answer
+        for (Answer answer : answers) {
+            List<Long> selectedOptionIds = answer.getSelectedOptionIds(); // Assuming you have a method to get selected option IDs
+            if (selectedOptionIds != null && !selectedOptionIds.isEmpty()) {
+                List<Option> selectedOptions = optionRepository.findAllById(selectedOptionIds);
+                answer.setSelectedOptions(selectedOptions);
+            }
+        }
+
+        // Save ResponseContext
+        ResponseContext responseContext = new ResponseContext();
+        responseContext.setIdFacultad(idFacultad);
+        responseContext.setIdCarrera(idCarrera);
+        responseContext.setGrupo(grupo);
+        responseContext.setIdAsignatura(idClase);
+        responseContext.setIdProfesor(idProfesor);
+        responseContext.setAnswers(answers);
+
+        responseContextRepository.save(responseContext);
+
+        // Save Answers
+        for (Answer answer : answers) {
+            answer.setResponseContext(responseContext);
+        }
+        answerRepository.saveAll(answers);
+
+        Respondido respondido = new Respondido();
+        respondido.setIdRespondido(cif);
+        respondido.setRespondido(true);
+        respondido.setFacultadId(idFacultad); //
+        respondido.setCarreraId(idCarrera);
+        respondido.setGrupo(grupo);
+        respondido.setClaseId(idClase);
+        respondido.setProfesorId(idProfesor);
+
+        // Save Respondido
+        respondidoRepository.save(respondido);
     }
 }

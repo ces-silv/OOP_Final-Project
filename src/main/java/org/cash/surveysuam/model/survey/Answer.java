@@ -31,7 +31,11 @@ public class Answer {
 
     private String responseText;    // text
 
-    private Long userId;
+    // private Long userId;
+
+    @ManyToOne @JoinColumn(name = "response_context_id")
+    private ResponseContext responseContext;
+
 
     // Getters y Setters
     public List<Long> getSelectedOptionIds() {
