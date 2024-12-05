@@ -1,6 +1,6 @@
 package org.cash.surveysuam.service.implement.logicSurvey;
 
-import org.cash.surveysuam.model.logicSurvey.Facultad;
+import org.cash.surveysuam.model.logicsurvey.Facultad;
 import org.cash.surveysuam.repository.FacultadRepository;
 import org.cash.surveysuam.service.interfaces.logicSurvey.FacultadService;
 import org.springframework.beans.factory.annotation.Autowired;

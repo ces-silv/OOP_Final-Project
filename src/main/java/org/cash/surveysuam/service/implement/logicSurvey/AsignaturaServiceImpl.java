@@ -1,15 +1,14 @@
 package org.cash.surveysuam.service.implement.logicSurvey;
 
 import jakarta.transaction.Transactional;
-import org.cash.surveysuam.model.logicSurvey.Asignatura;
-import org.cash.surveysuam.model.logicSurvey.Profesor;
+import org.cash.surveysuam.model.logicsurvey.Asignatura;
+import org.cash.surveysuam.model.logicsurvey.Profesor;
 import org.cash.surveysuam.repository.AsignaturaRepository;
 import org.cash.surveysuam.service.interfaces.logicSurvey.AsignaturaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AsignaturaServiceImpl implements AsignaturaService {

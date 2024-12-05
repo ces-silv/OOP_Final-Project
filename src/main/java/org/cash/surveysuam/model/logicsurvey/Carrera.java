@@ -1,4 +1,4 @@
-package org.cash.surveysuam.model.logicSurvey;
+package org.cash.surveysuam.model.logicsurvey;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

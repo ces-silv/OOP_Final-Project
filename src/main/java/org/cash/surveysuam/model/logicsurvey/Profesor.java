@@ -1,8 +1,6 @@
-package org.cash.surveysuam.model.logicSurvey;
+package org.cash.surveysuam.model.logicsurvey;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +17,8 @@ public class Profesor {
     private String NombreProfesor;
 
     @OneToMany(mappedBy = "profesor")
-    @JsonIgnore  // JsonIgnore - Used to prevent Serialization of this field | If not will return like a thousand times the same thing
+    @JsonIgnore  // JsonIgnore - Used to prevent Serialization of this field
+    // If not will return like a thousand times the same thing
     private List<Asignatura> asignaturas;
 
 }

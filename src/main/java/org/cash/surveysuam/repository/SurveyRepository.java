@@ -12,6 +12,7 @@ import java.util.UUID;
 @Repository
 public interface SurveyRepository extends JpaRepository<Survey, UUID> {
     @EntityGraph(attributePaths = {"questions", "questions.options"})
+    // Especifica que relaciones deben ser cargadas inmediatamente junto con la entidad Survey
     Optional<Survey> findById(UUID id);
 
     List<Survey> findByFaculty(String faculty);

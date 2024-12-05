@@ -1,6 +1,6 @@
 package org.cash.surveysuam.service.interfaces.logicSurvey;
 
-import org.cash.surveysuam.model.logicSurvey.Facultad;
+import org.cash.surveysuam.model.logicsurvey.Facultad;
 
 import java.util.List;
 

@@ -1,8 +1,6 @@
-package org.cash.surveysuam.model.logicSurvey;
+package org.cash.surveysuam.model.logicsurvey;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -10,7 +8,8 @@ import lombok.Setter;
 
 
 @Entity @Data // Data = Getters, Setters, toString, equalsTo and hashCode
-@Table(name = "Asignatura", uniqueConstraints = @UniqueConstraint(columnNames = {"idAsignatura", "idGrupo"})) //idAsignatura and idGrupo are fields from "AsignaturaId" (represented with the EmbeddedId ) both must be Unique
+@Table(name = "Asignatura", uniqueConstraints = @UniqueConstraint(columnNames = {"idAsignatura", "idGrupo"}))
+//idAsignatura and idGrupo are fields from "AsignaturaId" (represented with the EmbeddedId ) both must be Unique
 @Getter @Setter
 public class Asignatura {
 
@@ -26,7 +25,8 @@ public class Asignatura {
 
     // Relationship ManyToOne with "Profesor"
     // FetchType.LAZY - Will be loaded only when accessed
-    // JsonIgnore - Used to prevent Serialization of this field | If not will return like a thousand times the same thing
+    // JsonIgnore - Used to prevent Serialization of this field
+    // If not will return like a thousand times the same thing
     @ManyToOne(fetch = FetchType.LAZY) @JsonIgnore
     @JoinColumn(name = "id_profesor", referencedColumnName = "IdProfesor")
     private Profesor profesor;

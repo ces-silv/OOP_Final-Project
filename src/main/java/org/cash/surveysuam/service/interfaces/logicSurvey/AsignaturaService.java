@@ -1,8 +1,7 @@
 package org.cash.surveysuam.service.interfaces.logicSurvey;
 
-import org.cash.surveysuam.model.logicSurvey.Asignatura;
-import org.cash.surveysuam.model.logicSurvey.Profesor;
-import org.springframework.data.repository.query.Param;
+import org.cash.surveysuam.model.logicsurvey.Asignatura;
+import org.cash.surveysuam.model.logicsurvey.Profesor;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package org.cash.surveysuam.repository;
 
-import org.cash.surveysuam.model.logicSurvey.Carrera;
+import org.cash.surveysuam.model.logicsurvey.Carrera;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

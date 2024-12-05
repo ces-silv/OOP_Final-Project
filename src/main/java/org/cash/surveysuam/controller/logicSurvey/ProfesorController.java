@@ -1,6 +1,6 @@
 package org.cash.surveysuam.controller.logicSurvey;
 
-import org.cash.surveysuam.model.logicSurvey.Profesor;
+import org.cash.surveysuam.model.logicsurvey.Profesor;
 import org.cash.surveysuam.service.interfaces.logicSurvey.ProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.http.ResponseEntity;

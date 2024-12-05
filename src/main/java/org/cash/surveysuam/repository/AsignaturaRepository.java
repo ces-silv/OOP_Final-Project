@@ -1,9 +1,8 @@
 package org.cash.surveysuam.repository;
 
-import org.cash.surveysuam.model.logicSurvey.Asignatura;
-import org.cash.surveysuam.model.logicSurvey.AsignaturaId;
-import org.cash.surveysuam.model.logicSurvey.Profesor;
-import org.springframework.data.jpa.repository.EntityGraph;
+import org.cash.surveysuam.model.logicsurvey.Asignatura;
+import org.cash.surveysuam.model.logicsurvey.AsignaturaId;
+import org.cash.surveysuam.model.logicsurvey.Profesor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
