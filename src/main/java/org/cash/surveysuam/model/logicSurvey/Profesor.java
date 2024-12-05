@@ -18,8 +18,8 @@ public class Profesor {
     private String IdProfesor;
     private String NombreProfesor;
 
-    @OneToMany(mappedBy = "profesor") //@JsonIgnore
-    @JsonIgnore  // Evita la recursión al serializar Profesor -> Asignatura
+    @OneToMany(mappedBy = "profesor")
+    @JsonIgnore  // JsonIgnore - Used to prevent Serialization of this field | If not will return like a thousand times the same thing
     private List<Asignatura> asignaturas;
 
 }

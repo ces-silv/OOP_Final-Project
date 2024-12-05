@@ -16,28 +16,26 @@ public class Answer {
     private Long id;
 
     @ManyToOne @JoinColumn(name = "question_id")
-    private Question question; // Question answered
+    private Question question; // Question Answered
 
     @ManyToOne @JoinColumn(name = "survey_id")
-    private Survey survey; // survey associated
+    private Survey survey; // Survey Associated
 
+    // @JoinTable we define the table (that will handle the ManyToMany Relationship) and the columns that connects the entities Answer and Option.
+    // CascadeType.PERSIST and CascadeType.MERGE - When Answer Execute a Persist or Merge, the list of Option will also do ir
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "answer_options",
-            joinColumns = @JoinColumn(name = "answer_id"),
-            inverseJoinColumns = @JoinColumn(name = "option_id")
+            joinColumns = @JoinColumn(name = "answer_id"), // Define la columna en la tabla de unión que hace referencia a la clave primaria de la entidad propietaria de la relación (Answer).
+            inverseJoinColumns = @JoinColumn(name = "option_id") // Define la columna en la tabla de unión que hace referencia a la clave primaria de la entidad inversa de la relación (Option).
     )
-    private List<Option> selectedOptions = new ArrayList<>(); // Opciones seleccionadas (varias posibles para CHECKBOX)
+    private List<Option> selectedOptions = new ArrayList<>(); // Different selected options could be posible, for example in a CHECKBOX
 
-    private String responseText;    // text
-
-    // private Long userId;
+    private String responseText; // If the Answer is text we store it here
 
     @ManyToOne @JoinColumn(name = "response_context_id")
     private ResponseContext responseContext;
 
-
-    // Getters y Setters
     public List<Long> getSelectedOptionIds() {
         return selectedOptions.stream().map(Option::getId).collect(Collectors.toList());
     }

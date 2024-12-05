@@ -12,8 +12,8 @@ public class Option {
     private Long id;
 
     @ManyToOne @JoinColumn(name = "question_id")
-    private Question question; // pregunta a la que pertenece esta opcion
+    private Question question; // To know which Question this option belongs to
 
-    private String text; // el texto de la opcion, por ejempo "Si", "No", "Tal vez"
+    private String text; // Text for the option, for example:  "Yes", "No", "Maybe"
 
 }

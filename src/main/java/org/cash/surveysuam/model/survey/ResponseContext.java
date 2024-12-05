@@ -22,8 +22,6 @@ public class ResponseContext {
     private String idAsignatura;
     private int grupo;
 
-//    @OneToMany(mappedBy = "responseContext", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Answer> answers = new ArrayList<>();
 
     @OneToMany(mappedBy = "responseContext", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Answer> answers = new ArrayList<>();

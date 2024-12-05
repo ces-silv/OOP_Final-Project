@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Respondido {
 
-    @EmbeddedId
+    @EmbeddedId // Primary Key (Compose Key) for "Respondido"
     private RespondidoId IdRespondido;
 
     private boolean Respondido;

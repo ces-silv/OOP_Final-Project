@@ -9,8 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Entity @Data
-@Table(name = "Asignatura", uniqueConstraints = @UniqueConstraint(columnNames = {"idAsignatura", "idGrupo"}))
+@Entity @Data // Data = Getters, Setters, toString, equalsTo and hashCode
+@Table(name = "Asignatura", uniqueConstraints = @UniqueConstraint(columnNames = {"idAsignatura", "idGrupo"})) //idAsignatura and idGrupo are fields from "AsignaturaId" (represented with the EmbeddedId ) both must be Unique
 @Getter @Setter
 public class Asignatura {
 
@@ -20,10 +20,13 @@ public class Asignatura {
     private String nombre;
     private String idCarrera;
 
-    @ManyToOne
+    @ManyToOne // Relationship ManyToOne with "Facultad"
     @JoinColumn(name = "id_facultad", referencedColumnName = "idFacultad")
     private Facultad facultad;
 
+    // Relationship ManyToOne with "Profesor"
+    // FetchType.LAZY - Will be loaded only when accessed
+    // JsonIgnore - Used to prevent Serialization of this field | If not will return like a thousand times the same thing
     @ManyToOne(fetch = FetchType.LAZY) @JsonIgnore
     @JoinColumn(name = "id_profesor", referencedColumnName = "IdProfesor")
     private Profesor profesor;
