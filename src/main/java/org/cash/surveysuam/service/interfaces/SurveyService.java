@@ -15,4 +15,8 @@ public interface SurveyService {
 
     Survey getSurveyById(UUID id);
 
+    Survey updateSurvey(UUID id, Survey updatedSurvey);
+
+    void deleteSurvey(UUID id);
+
 }

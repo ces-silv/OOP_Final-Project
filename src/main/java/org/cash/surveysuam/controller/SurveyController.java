@@ -167,4 +167,54 @@ public class SurveyController {
         return ResponseEntity.ok(dto);
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<SurveyDTO> updateSurvey(@PathVariable UUID id, @RequestBody SurveyDTO surveyDTO) {
+        Survey survey = new Survey();
+        survey.setId(id);
+        survey.setTitle(surveyDTO.getTitle());
+        survey.setDescription(surveyDTO.getDescription());
+        survey.setFaculty(surveyDTO.getFaculty());
+
+        // Mapear las preguntas del DTO a la entidad Survey
+        if (surveyDTO.getQuestions() != null) {
+            List<Question> questions = surveyDTO.getQuestions().stream().map(questionDTO -> {
+                Question question = new Question();
+                question.setId(questionDTO.getId());
+                question.setText(questionDTO.getText());
+                question.setType(QuestionType.valueOf(questionDTO.getType()));
+                question.setRequired(questionDTO.isRequired());
+
+                // Mapear las opciones
+                if (questionDTO.getOptions() != null) {
+                    List<Option> options = questionDTO.getOptions().stream().map(optionDTO -> {
+                        Option option = new Option();
+                        option.setId(optionDTO.getId());
+                        option.setText(optionDTO.getText());
+                        return option;
+                    }).collect(Collectors.toList());
+                    question.setOptions(options);
+                }
+                return question;
+            }).collect(Collectors.toList());
+
+            survey.setQuestions(questions);
+        }
+
+        // Actualizar la encuesta con las preguntas y opciones
+        Survey updatedSurvey = surveyService.updateSurvey(id, survey);
+
+        // Mapear los IDs generados de vuelta al DTO (opcional)
+        surveyDTO.setId(updatedSurvey.getId());
+        // Aquí podrías mapear los IDs de preguntas y opciones si es necesario
+
+        return ResponseEntity.ok(surveyDTO);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteSurvey(@PathVariable UUID id) {
+        surveyService.deleteSurvey(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
