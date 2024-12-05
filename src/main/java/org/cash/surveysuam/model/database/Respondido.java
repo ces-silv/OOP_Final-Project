@@ -1,5 +1,6 @@
 package org.cash.surveysuam.model.database;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -14,12 +15,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Respondido {
-    @Id
-    private String IdRespondido;
+
+    @EmbeddedId
+    private RespondidoId IdRespondido;
+
     private boolean Respondido;
     private int FacultadId;
     private int CarreraId;
-    private String ClaseId;
-    private int Grupo;
     private String ProfesorId;
 }
