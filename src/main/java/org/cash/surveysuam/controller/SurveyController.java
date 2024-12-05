@@ -60,7 +60,6 @@ public class SurveyController {
 
         // Mapear los IDs generados de vuelta al DTO (opcional)
         surveyDTO.setId(savedSurvey.getId());
-        // Aquí podrías mapear los IDs de preguntas y opciones si es necesario
 
         return ResponseEntity.ok(surveyDTO);
     }
@@ -205,7 +204,6 @@ public class SurveyController {
 
         // Mapear los IDs generados de vuelta al DTO (opcional)
         surveyDTO.setId(updatedSurvey.getId());
-        // Aquí podrías mapear los IDs de preguntas y opciones si es necesario
 
         return ResponseEntity.ok(surveyDTO);
     }
