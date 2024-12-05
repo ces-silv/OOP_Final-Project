@@ -6,7 +6,7 @@ Este proyecto busca optimizar y automatizar el proceso de evaluación del desemp
 
 ---
 
-## 🚀 Objetivo del Proyecto
+## 🚀 Objetivo del Proyecto (WORKING ON!)
 
 Desarrollar un sistema informático integral que permita:
 
@@ -19,7 +19,7 @@ Desarrollar un sistema informático integral que permita:
 
 ---
 
-## 🧐 Desafíos Identificados
+## 🧐 Desafíos Identificados (WORKING ON!)
 
 1. **Falta de seguimiento efectivo**: Dificultades para garantizar que los estudiantes evalúen a todos sus profesores.
 2. **Procesamiento manual y lento**: Uso de herramientas como QuestionPro que requieren procesos tediosos y propensos a errores.
@@ -29,8 +29,8 @@ Desarrollar un sistema informático integral que permita:
 
 ---
 
-## 💡 Funcionalidades Clave
-
+## 💡 Funcionalidades Clave (WORKING ON!)
+ 
 - **Flexibilidad en la Creación de Evaluaciones**: Instrumentos personalizables y reutilizables para diferentes contextos.
 - **Interfaz Web Accesible**: Plataforma intuitiva y amigable para todos los actores.
 - **Seguimiento del Progreso**: Gráficos y estadísticas en tiempo real para monitorear la participación.
@@ -41,7 +41,7 @@ Desarrollar un sistema informático integral que permita:
 
 ---
 
-## 🌟 Beneficios del Sistema
+## 🌟 Beneficios del Sistema (WORKING ON!)
 
 - **Eficiencia Operativa**: Reducción de tiempo y recursos dedicados al procesamiento de datos.
 - **Mejora Continua**: Retroalimentación significativa para implementar mejoras en el proceso de enseñanza-aprendizaje.
@@ -68,4 +68,4 @@ Desarrollar un sistema informático integral que permita:
 
 ## 📚 Documentación Adicional
 
-Para más detalles sobre el alcance del proyecto y requerimientos, revisa el [documento de descripción del problema](#).
+Para más detalles sobre el alcance del proyecto y requerimientos contactanos!
